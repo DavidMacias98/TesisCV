@@ -1,0 +1,62 @@
+<div class="glassbox txt row" style="width: 100%; margin-bottom: 1%;">
+    GESTION DE ACTIVIDADES
+</div>
+
+
+<div style="width: 100% ; display: flex; gap: 10px;align-content: center;">
+    <button (click)="openModalAddActivity()">
+        <div class="glassbox" style="background-color: crimson; color: white;">
+            Nueva actividad
+            <div class="icoPlus"></div>
+        </div>
+    </button>
+    <mat-form-field class="example-full-width">
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Name" value="">
+    </mat-form-field>
+</div>
+
+
+
+
+    <div style="width: max-content ;">
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons #paginator
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+    </div>
+    <table mat-table [dataSource]="Activitys" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="tema">
+            <th mat-header-cell *matHeaderCellDef> TEMA </th>
+            <td mat-cell *matCellDef="let element"> {{element.nameTema}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="materia">
+            <th mat-header-cell *matHeaderCellDef> MATERIA </th>
+            <td mat-cell *matCellDef="let element"> {{element.materia.name}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef> FECHA </th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaAsignada}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="fechaentrega">
+            <th mat-header-cell *matHeaderCellDef> FECHA DE ENTREGA</th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaMaxEntrega}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="detalles">
+            <th mat-header-cell *matHeaderCellDef> DETALLES </th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="verDetalle(element)"
+                    style="padding: 2%; background-color: #44b678; width: max-content; border-radius: 4px; color: white;">
+                    VER DETALLES
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>

@@ -1,0 +1,151 @@
+<div class="txt"
+    style="background-color: #0a4863ff; width: max-content; padding: 5px; border-radius: 4px; color: white; margin-bottom: 1%"
+    mat-raised- mat-button>
+    SOLICITUD DE INGRESO DE ESTUDIANTE
+</div>
+<div class="column">
+    <mat-stepper  [linear]="isLinear" [orientation]="getStepperOrientation()" [linear]="isLinear" #stepper  [animationDuration]="'2000'">
+        <!-- Contenido de los pasos -->
+        <mat-step  [stepControl]="firstFormGroup">
+            
+                <ng-template matStepLabel>REGISTRO DE ESTUDIANTE</ng-template>
+
+                <span (click)="openDialog()" class=" txt"
+                    style="display: flex;flex-direction: row; gap: 10px; width: max-contentwa;">TODOS LOS DATOS
+                    DEBEN SER DEL ESTUDIANTE
+                </span>
+
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Numero de documento</mat-label>
+                        <input  #documento type="number" matInput placeholder="">
+                    </mat-form-field> 
+
+                    <button *ngIf="!studentValidator" mat-raised-button (click)="validarStudent(documento.value)" > validar</button>
+
+                </div>
+
+                <form [formGroup]="firstFormGroup" *ngIf="studentValidator" class="example-form column">
+
+                    <div class="row">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Nombres</mat-label>
+                            <input #name type="text" matInput placeholder="" formControlName="firstCtrl" required  >
+                        </mat-form-field>   
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Apellidos</mat-label>
+                            <input #ape type="text" matInput placeholder="" formControlName="firstApeCtrl" required >
+                        </mat-form-field>
+
+
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Correo</mat-label>
+                            <input #correo type="email" matInput placeholder="" formControlName="CorreoCtrl" required >
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Contraseña</mat-label>
+                            <input #pass type="password" matInput placeholder=""formControlName="PassCtrl" required  >
+                        </mat-form-field>
+                    </div>
+
+
+
+
+                    <mat-card-actions class="containerBtnRow">
+                        <button (click)="SetUser(name.value, ape.value, correo.value, pass.value,documento.value )"
+                            class="btnok" mat-button matStepperNext>SIGUIENTE</button>
+                    </mat-card-actions>
+                </form>
+            
+        </mat-step>
+        <mat-step>
+            <form>
+                <ng-template matStepLabel>DOCUMENTOS</ng-template>
+
+                <span class=" txt"
+                    style="display: flex;flex-direction: row; gap: 10px; width: max-contentwa; margin-bottom: 20px;">TODOS
+                    LOS DOCUMENTOS
+                    DEBEN SER DEL ESTUDIANTE
+                </span>
+
+                <form class="">
+                    <div style="display: flex; width:100%; ">
+                        <div class="container-input">
+                            <input type="file" name="fileDocument" id="fileDocument" class="inputfile inputfile-7"
+                                (input)="onFile($event,0);" />
+                            <label style="background-color:#0a4863ff; color: white; border-radius: 4px; width: 100%; "
+                                for="fileDocument" placeholder="Cargar Documento">
+                                <span class="iborrainputfile">{{nombreDocIde}}</span>
+                                <div style="margin-left: 10px;" class="icoUpload"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div style="display: flex;  width:100%;  ">
+                        <div class="container-input">
+                            <input type="file" name="fileVac" id="fileVac" class="inputfile inputfile-7"
+                                (input)="onFile($event,1);" />
+                            <label style="background-color:#0a4863ff; color: white; border-radius: 4px; width: 100%; "
+                                for="fileVac" placeholder="Cargar certfificado de vacuna">
+                                <span class="iborrainputfile">{{nombreDocVac}}</span>
+                                <div style="margin-left: 10px;" class="icoUpload"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div style="display: flex;  width:100%;  ">
+                        <div class="container-input">
+                            <input type="file" name="filePhoto" id="filePhoto" class="inputfile inputfile-7"
+                                (input)="onFile($event,2);" />
+                            <label style="background-color:#0a4863ff; color: white; border-radius: 4px; width: 100%; "
+                                for="filePhoto" placeholder="Cargar foto de perfil">
+                                <span class="iborrainputfile">{{nombrePhoto}}</span>
+                                <div style="margin-left: 10px;" class="icoUpload"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                </form>
+
+                <mat-card-actions class="containerBtnRow">
+                    <button mat-raised-button matStepperPrevious>REGRESAR</button>
+                    <button class="btnok" mat-raised-button matStepperNext>SIGUIENTE</button>
+                </mat-card-actions>
+            </form>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>TERMINOS</ng-template>
+
+            <section class="containerBtnColum">
+                <mat-checkbox [(ngModel)]="infoVigente">Acepto que la informacion ingresada es la vigente</mat-checkbox>
+                <mat-checkbox [(ngModel)]="terminosycondiciones">Acepto terminos y condiciones de la
+                    institucion</mat-checkbox>
+            </section>
+
+
+
+
+            <button *ngIf="infoVigente && terminosycondiciones " class="btnok" (click)="putStudent()"
+                mat-raised-button>CARGAR ESTUDIANTE</button>
+
+
+            <mat-card-actions class="containerBtnRow">
+                <button mat-raised-button matStepperPrevious>REGRESAR</button>
+                <button mat-raised-button (click)="stepper.reset()">NUEVO</button>
+            </mat-card-actions>
+        </mat-step>
+    </mat-stepper>
+
+
+
+
+
+
+
+
+
+</div>

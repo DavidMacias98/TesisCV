@@ -1,0 +1,16 @@
+export * from './admin-controller.service';
+import { AdminControllerService } from './admin-controller.service';
+export * from './admin-controller.serviceInterface';
+export * from './campus-controller.service';
+import { CampusControllerService } from './campus-controller.service';
+export * from './campus-controller.serviceInterface';
+export * from './docente-controller.service';
+import { DocenteControllerService } from './docente-controller.service';
+export * from './docente-controller.serviceInterface';
+export * from './public-controller.service';
+import { PublicControllerService } from './public-controller.service';
+export * from './public-controller.serviceInterface';
+export * from './student-controller.service';
+import { StudentControllerService } from './student-controller.service';
+export * from './student-controller.serviceInterface';
+export const APIS = [AdminControllerService, CampusControllerService, DocenteControllerService, PublicControllerService, StudentControllerService];

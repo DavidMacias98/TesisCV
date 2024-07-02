@@ -1,0 +1,47 @@
+<div class="glassbox column">
+    <div class="glassbox" style="background-color:  #44b678; font-weight: bold; font-size: 20px; margin: 2% 0%   ;">LISTA DE DOCENTES</div>
+
+    <div>
+        <table mat-table [dataSource]="colabs" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> NOMBRE </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="ape">
+                <th mat-header-cell *matHeaderCellDef> APELLIDO </th>
+                <td mat-cell *matCellDef="let element"> {{element.ape}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="whatsapp">
+                <th mat-header-cell *matHeaderCellDef> WHATSAPP </th>
+                <td mat-cell *matCellDef="let element"> {{element.whatsapp}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="usser">
+                <th mat-header-cell *matHeaderCellDef> USUARIO </th>
+                <td mat-cell *matCellDef="let element"> {{element.usser}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="select" >
+                <th mat-header-cell *matHeaderCellDef> SELECCIONAR </th>
+                <td mat-cell *matCellDef="let element">
+                    <button  (click)=" colabXcurso(element.id)">
+                     <div *ngIf="!element.docente" class="glassbox" style="background-color: #44b678; color: white;" > Agregar<div class="icoAddUser"></div></div>
+                       
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+
+
+</div>

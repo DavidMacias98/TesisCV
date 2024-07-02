@@ -1,0 +1,28 @@
+<div class="glassbox">
+
+    <div class="glassbox">
+        DOCUMENTOS DEL USUARIO
+    </div>
+    <div class=" row ">
+        <a *ngIf="data.student.imgDoc" href="{{data.student.imgDoc}}" download="CEDULA_{{data.student.id}}" class="column glassbox">
+            <img class="icoDownload">
+            CEDULA DE IDENTIDAD 
+        </a>
+
+        <a  *ngIf="data.student.imgVac"  href="{{data.student.imgVac}}" download="CERT_VACUNACION_{{data.student.id}}"class="column glassbox">
+            <img class="icoDownload">
+            CERTIFICADO DE VACUNACION
+        </a>
+        
+        <a *ngIf="data.student.imgPerfi" href="{{data.student.imgPerfi}}" download="FOTO_PERFIL{{data.student.id}}"class="column glassbox">
+            <img class="icoDownload">
+            FOTO DE PERFIL
+        </a>
+
+    </div>
+
+    <div (click)="cerrar()" class="glassbox">
+        <button>OK</button>
+    </div>
+
+</div>

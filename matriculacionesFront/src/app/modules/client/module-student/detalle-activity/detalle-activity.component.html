@@ -1,0 +1,142 @@
+<div style="display:flex ; flex-direction: column;  height: 100%; padding: 1%; width: 100%; ">
+
+
+   
+
+
+
+        <div style="display: flex; flex-direction: row; width: 100%;">
+            <div style="display: flex; flex-direction: column; width: max-content;">
+                <div class="txt glassbox" style="background-color:  #44b678; margin-top: 5px;">
+                    TEMA
+                </div>
+                <div class="txt glassbox" style="background-color:  #44b678; margin-top: 5px;">
+                    APERTURA
+                </div>
+                <div class="txt glassbox" style="background-color:  #44b678; margin-top: 5px;">
+                    CIERRE
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; width: max-content;">
+                <div class="txt glassbox" style="background-color: rgb(255, 255, 255); margin-top: 5px;">
+                    {{detalle.activity.nameTema}}
+                </div>
+                <div class="txt glassbox" style="background-color: rgb(255, 255, 255); margin-top: 5px;">
+                    {{detalle.activity.fechaAsignada}}
+                </div>
+                <div class="txt glassbox" style="background-color: rgb(255, 255, 255); margin-top: 5px;">
+                    {{detalle.activity.fechaMaxEntrega}}
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <hr />
+        <br>
+        <div style="display: flex; flex-direction: row; width: 100%;">
+            <div style="display: flex; flex-direction: column; width: max-content;">
+                <div class="txt glassbox" style="background-color:  #44b678; margin-top: 5px;">
+                    INDICACIONES
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; width: max-content;">
+                <div class="txt glassbox" style="background-color: rgb(255, 255, 255);margin-top: 5px; ">
+                    {{detalle.activity.observacion}}
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr />
+        <br>
+        <div class="txt">
+            DETALLES DE LA ACTIVIDAD
+        </div>
+
+        <div style="display: flex; flex-direction: row; width: 100%;">
+            <div style="display: flex; flex-direction: column; width: max-content;">
+                <div class="txt glassbox" style="background-color:  #44b678; margin-top: 5px;">
+                    NUMEROS DE INTENTO
+                </div>
+                <div class="txt glassbox" style="background-color: #44b678;  margin-top: 5px">
+                    ESTADO DE ENTREGA
+                </div>
+                <div class="txt glassbox" style="background-color:  #44b678;  margin-top: 5px">
+                    ESTADO DE CALIFICACION
+                </div>
+                <div class="txt glassbox" style="background-color:  #44b678;  margin-top: 5px; ">
+                    TIEMPO RESTANTE
+                </div>
+                <div class="txt glassbox" style="background-color: #44b678;  margin-top: 5px; margin-bottom: 5px;">
+                    ULTIMA MODIFICACION
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; width: max-content;">
+                <div class="txt glassbox" style="background-color: rgb(255, 255, 255); margin-top: 5px;">
+                    {{detalle.numeroIntento}}
+                </div>
+                <div class="txt glassbox" style="background-color: rgb(255, 255, 255);  margin-top: 5px; display: flex; flex-direction: row;">
+                    <div>{{detalle.statusEntrega}}</div> <div *ngIf="detalle.statusEntrega=='ENTREGADO'" style="margin-left: 5px;" class="icoSucces"></div>
+                    
+                </div>
+                <div class="txt glassbox" style="background-color: rgb(255, 255, 255);  margin-top: 5px">
+                    {{detalle.statusCalifica}}
+                </div>
+                <div class="txt glassbox" style="background-color: rgb(255, 255, 255);  margin-top: 5px; display: flex; flex-direction: row;">
+                   <div>
+                    {{diasRestante}} 
+                   </div>
+                   <div *ngIf="statusTime" style="color: red; margin-left: 5px;" >
+                    {{statusTime}}
+                   </div>
+                </div>
+                <div class="txt glassbox"
+                    style="background-color: rgb(255, 255, 255);  margin-top: 5px; margin-bottom: 5px;">
+                    {{ detalle.ultimaModificacion ? detalle.ultimaModificacion : 'SIN MODIFICACIONES' }}
+                </div>
+            </div>
+
+
+        </div>
+        <hr />
+
+        <div style="display: flex; flex-direction: row; width: 100%; height: 20%;">
+            <div style="display: flex; justify-content: start; width:max-content; margin: 35px;">
+                <div>
+
+                    <a href="{{detalle.urlActivity}}">
+                        <div class="icoDownload scalar"></div>
+                        <div class="txt">DESCARGAR</div>
+                    </a>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: center;align-items: center; width:100%; ">
+                    <div class="container-input">
+                        <input type="file" name="file-7" id="file-7" class="inputfile inputfile-7"
+                            (input)="onFilechange($event);" />
+                        <label style="background-color: brown; color: white; border-radius: 4px;" for="file-7"
+                            placeholder="Cargar Documento">
+                            <span class="iborrainputfile">{{nombredoc}} </span>
+                           
+                            <div class="icoUpload"></div>
+                            <strong class="img-load">
+                                <img class="ico_load" src="/assets/images/investor/download.png" alt="">
+                            </strong>
+                        </label>
+                    </div>
+            </div>
+            <div style="display: flex; justify-content: end; width:max-content; margin: 35px;">
+                <div>
+
+                    <div (click)="uploadDocument()">
+                        <div class="icoSave scalar"></div>
+                        <div class="txt">GUARDAR</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+   
+
+</div>

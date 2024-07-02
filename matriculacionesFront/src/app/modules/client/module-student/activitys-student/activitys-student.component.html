@@ -1,0 +1,71 @@
+<div style="display:flex ; flex-direction: column;  height: 100%; padding: 2%; width: 100%;  background-color: #e9f3ff;">
+
+
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <div class="glassbox">Gestor de actividades</div>
+
+
+        <div style=" display: flex; flex-direction: row; width: 100%;">
+            <div style="width: 50% ; display: flex;">
+               
+   
+            </div>
+        </div>
+
+
+
+
+        <table mat-table [dataSource]="Activitys" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="tema">
+                <th mat-header-cell *matHeaderCellDef> TEMA </th>
+                <td mat-cell *matCellDef="let element"class="txt"> {{element.activity.nameTema}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="materia">
+                <th mat-header-cell *matHeaderCellDef> MATERIA </th>
+                <td mat-cell *matCellDef="let element"class="txt"> {{element.activity.materia.name}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef> FECHA </th>
+                <td mat-cell *matCellDef="let element" class="txt"> {{element.activity.fechaAsignada}} </td>
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="fechaentrega">
+                <th mat-header-cell *matHeaderCellDef> FECHA DE ENTREGA</th>
+                <td mat-cell *matCellDef="let element"class="txt"> {{element.activity.fechaMaxEntrega}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> ESTADO</th>
+                <td mat-cell *matCellDef="let element"class="txt"> {{element.statusEntrega}}  
+                    <div *ngIf="element.statusEntrega=='ENTREGADO'" class="icoSucces"></div>
+                    <div *ngIf="element.statusEntrega=='SIN ENTREGAR'" class="icoError"></div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="subir">
+                <th mat-header-cell *matHeaderCellDef> SUBIR </th>
+                <td mat-cell *matCellDef="let element"class="txt">
+                    <button (click)="goDetalleActivity(element)"
+                        style="padding: 2%; background-color: #44b678; width: max-content; border-radius: 4px; color: white;">
+                        VER DETALLES
+                    </button>
+                </td>
+            </ng-container>
+        
+           
+        
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+
+</div>
+
+
+

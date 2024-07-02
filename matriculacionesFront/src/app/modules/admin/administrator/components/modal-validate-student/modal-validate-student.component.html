@@ -1,0 +1,27 @@
+<div class="glassbox">
+    <div class="glassbox">
+        SELECCIONAR ULTIMO CURSO APROBADO
+    </div>
+    <form [formGroup]="firstFormGroup">
+        <div>
+
+
+            <mat-form-field class="example-full-width">
+                <mat-label>CURSOS</mat-label>
+                <mat-select [(ngModel)]="selectedCurso" formControlName="curso" name="cursos">
+                    <mat-option *ngFor="let mat of cursos " [value]="mat">
+                        {{mat.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="glassbox" style="display: flex; flex-direction: row; gap: 50px;">
+
+            <button mat-button (click)="cerrarModal()">CANCELAR</button>
+            <button mat-button (click)="putValidateStudent()">APROBAR</button>
+
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,54 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<section class="body">
+
+  <!--IMAGEN FONDO\-->
+
+  <img style="width: 50%;" src="/assets/img/4938169_30862.svg" alt="">
+
+  <!-- FIN IMAGEN FONDO\-->
+
+
+
+  <!--LOGIN\-->
+  <div class="glassbox">
+    <div style="color: rgb(0, 0, 0);">
+      LOGIN
+    </div>
+    <div>
+      <img style="width: 100%;" src="/assets/img/logo.svg" alt="">
+    </div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input #user type="email" matInput placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input #pass type="password" matInput placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-card-actions class="containerBtnRow">
+        <button (click)="login(user.value,pass.value)" style="background-color: #0a4863ff; color: white;"
+          mat-button>ACCEDER</button>
+        <button (click)="openDialog()" mat-button>REGISTRARSE</button>
+      </mat-card-actions>
+
+    </form>
+  </div>
+  <!--END LOGIN\-->
+
+</section>

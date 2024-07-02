@@ -1,0 +1,97 @@
+<!-- component -->
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<!-- Agregar el enlace al archivo de la biblioteca FontAwesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+<div class="flex min-h-screen">
+    <nav class="w-64 flex-shrink-0">
+        <div class="flex-auto bg-gray-900 h-full">
+            <div class="flex flex-col overflow-y-auto">
+                <ul class="relative m-0 p-0 list-none h-full">
+                    <li
+                        class="text-white text-2xl p-4 w-full flex relative shadow-sm justify-start bg-gray-800 border-b-2 border-gray-700">
+                        Curso
+                    </li>
+                    <li
+                        class="text-white p-4 w-full flex relative shadow-sm justify-start bg-gray-800 border-b-2 border-gray-700">
+                        <div class="mr-4 flex-shrink-0 my-auto">
+                            <svg class="fill-current w-5 h-5" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-auto my-1">
+                            <span>Modulo de pagos</span>
+                        </div>
+                    </li>
+                    <li class="p-4 w-full flex relative shadow-sm">
+                        <div class="flex-auto my-1">
+                            <span class="text-white font-medium">Develop</span>
+                        </div>
+                    </li>
+
+                    <div class="text-blue-400 flex relative px-4 hover:bg-gray-700 cursor-pointer">
+                        <div class="mr-4 my-auto">
+                            <svg class="fill-current h-5 w-5" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="flex-auto my-1">
+                            <span >
+                                
+                                Ordenes de pagos</span>
+                        </div>
+                    </div>
+
+           
+
+
+         
+                 
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex flex-col w-full">
+        <header class="text-white bg-blue-400 sticky left-auto top-0 right-0">
+            <div class="h-12 px-6 flex relative items-center justify-end">
+                <button class="flex mx-4 text-white hover:text-gray-200 focus:outline-none">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg>
+                </button>
+
+                <button class="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none">
+                    <button mat-button [matMenuTriggerFor]="menu"> <img class="img-circle" src="https://www.w3schools.com/howto/img_avatar.png" alt="">
+                    </button>
+                    <mat-menu #menu="matMenu">
+                      <button (click)="openModalCambiarContra()" mat-menu-item>Cambiar clave</button>
+                      <button (click)="cerrarSesion()" mat-menu-item>Cerrar sesion</button>
+                    </mat-menu>
+                        
+                </button>
+            </div>
+        </header>
+
+        <div class="text-white bg-blue-400 flex flex-shrink-0 flex-col">
+            <div class="flex relative items-center p-4 h-12">
+                <span class="text-2xl tracking-wide">Authentication</span>
+            </div>
+        </div>
+
+
+
+        <ng-content></ng-content>
+
+
+
+
+    </div>
+
+</div>

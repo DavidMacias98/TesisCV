@@ -1,0 +1,73 @@
+<div class="glassbox txt row" style="width: 100%; margin-bottom: 1%;">
+    LISTA DE CURSOS
+</div>
+<button mat-raised-button style="background-color: #0a4863ff; color: white; margin-bottom: 5px;"
+    (click)="showAddCurso()">
+    Crear nuevo curso
+</button>
+<div class="  rowcontrol" style="width: 100%; ">
+
+
+
+    <div style="width: 30% ; display: flex;flex-direction: row; justify-content: flex-start; height: 40px;">
+        <input (keyup)="applyFilter($event)" type="search" placeholder="Buscar">
+    </div>
+
+
+    <div style="width: 70%; display: flex; justify-content: flex-end;">
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons #paginator
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+    </div>
+</div>
+
+
+<table mat-table [dataSource]="cursos" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> NOMBRE </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Materias Column -->
+    <ng-container matColumnDef="materias">
+        <th mat-header-cell *matHeaderCellDef> MATERIAS </th>
+        <td mat-cell *matCellDef="let element">
+            <button (click)="showCrudMaterias(element.id)" mat-raised-button>Ver materias </button>    
+        </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="docente">
+        <th mat-header-cell *matHeaderCellDef> DOCENTE </th>
+        <td mat-cell *matCellDef="let element">
+            <div (click)="openDialogDocente(element.id)" style="width: max-content;">
+                <button *ngIf="element.docente" mat-raised-button style="background-color: orange;">
+                    {{element.docente.name
+                    + " " + element.docente.ape}}
+                </button>
+                <button *ngIf="!element.docente" mat-raised-button style="background-color: mediumseagreen;">
+                    Agregar
+                    <div class="icoAddUser"></div>
+                </button>
+            </div>
+        </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="activo">
+        <th mat-header-cell *matHeaderCellDef> ACTIVO </th>
+        <td mat-cell *matCellDef="let element">
+            <section class="example-section">
+                <mat-checkbox [(ngModel)]="element.activo" class="example-margin"></mat-checkbox>
+            </section>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

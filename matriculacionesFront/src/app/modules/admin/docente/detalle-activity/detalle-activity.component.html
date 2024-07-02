@@ -1,0 +1,117 @@
+<div class="glassbox txt row" style="width: 100%; margin-bottom: 1%;">
+    DETALLE DE LA ACTIVIDAD</div>
+
+
+
+
+
+<mat-form-field class="example-full-width">
+    <mat-label>Buscar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Name" value="">
+</mat-form-field>
+
+
+
+
+
+
+
+<div style="width: max-content;">
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons #paginator
+        aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>
+<table mat-table [dataSource]="detalles" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="tema">
+        <th mat-header-cell *matHeaderCellDef> TEMA </th>
+        <td mat-cell *matCellDef="let element"> {{element.activity.nameTema}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="materia">
+        <th mat-header-cell *matHeaderCellDef> MATERIA </th>
+        <td mat-cell *matCellDef="let element"> {{element.activity.materia.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="student">
+        <th mat-header-cell *matHeaderCellDef> ESTUDIANTE </th>
+        <td mat-cell *matCellDef="let element"> {{element.student.name}} {{element.student.ape}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="repre">
+        <th mat-header-cell *matHeaderCellDef> # REPRESENTANTE </th>
+        <td mat-cell *matCellDef="let element"> {{element.student.idRepre.whatsapp}} </td>
+    </ng-container>
+    <ng-container matColumnDef="statusStudent">
+        <th mat-header-cell *matHeaderCellDef> ESTADO ESTUDIANTE</th>
+        <td mat-cell *matCellDef="let element">
+            <div *ngIf="element.statusEntrega!='ENTREGADO'" class="glassbox bg-brown" style="color: white;">
+                SIN ENTREGAR
+            </div>
+            <div *ngIf="element.statusEntrega=='ENTREGADO'" class="glassbox bg-green" style="color: white;">
+                ENTREGADO
+            </div>
+
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="statusDocente">
+        <th mat-header-cell *matHeaderCellDef> ESTADO DOCENTE </th>
+        <td mat-cell *matCellDef="let element">
+            <div *ngIf="element.statusCalifica!='CALIFICADO'" class="glassbox bg-brown" style="color: white;">
+                SIN CALIFICAR
+            </div>
+            <div *ngIf="element.statusCalifica=='CALIFICADO'" class="glassbox bg-green" style="color: white;">
+                CALIFICADO
+            </div>
+
+        </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="calificacion">
+        <th mat-header-cell *matHeaderCellDef> CALIFIACION </th>
+        <td mat-cell *matCellDef="let element">
+
+
+            <div *ngIf="element.calificacion>=7" class="glassbox bg_white"> {{element.calificacion}}</div>
+            <div *ngIf="element.calificacion<7" class="glassbox bg-brown"> {{element.calificacion}}</div>
+
+        </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="file">
+        <th mat-header-cell *matHeaderCellDef> ARCHIVO </th>
+        <td mat-cell *matCellDef="let element">
+
+            <a href="{{element.urlActivityPresentada}}" download>
+                <img class="icoDownload">
+
+            </a>
+
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="calificar">
+        <th mat-header-cell *matHeaderCellDef> CALIFICAR </th>
+        <td mat-cell *matCellDef="let element">
+            <button (click)="openDialogCalificar(element.id)" class="glassbox bg-navy">CALIFICAR
+            </button>
+
+
+        </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -1,0 +1,18 @@
+<div class="glassbox bg_white" >
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>CALIFICAR/10</mat-label>
+          <input #calificacion type="number" max="10" onkeydown="return false" matInput placeholder="Calificar" >
+        </mat-form-field>
+      
+        <div>
+            <button (click)="calificar(calificacion.value)"
+            class="glassbox bg-navy"
+            >CALIFICAR</button>
+          </div>
+      </form>
+
+
+
+</div>

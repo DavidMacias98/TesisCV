@@ -1,0 +1,104 @@
+<div class="glassbox txt row" style="width: 100%;">
+    REGISTRO DE ACTIVIDADES
+</div>
+
+
+<div style=" display: flex; flex-direction: row; width: 100%; margin-top: 10px;">
+    <div style="width: 50% ; display: flex;">
+
+        <mat-form-field  >
+            <mat-label>Estudiantes</mat-label>
+            <mat-select [(value)]="studentSelected">
+                <mat-option (click)="getActivitys()" *ngFor="let student of students" [value]="student">
+                    {{student.name}} {{student.ape}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+<div s class="scrollbar_">
+    <div style="width: max-content;">
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons #paginator
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+    </div>
+
+    <table mat-table [dataSource]="Activitys" class="" matSort >
+
+        <ng-container matColumnDef="student">
+            <th mat-header-cell *matHeaderCellDef> ESTUDIANTE </th>
+            <td mat-cell *matCellDef="let element" class="txt"> {{element.student.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tema">
+            <th mat-header-cell *matHeaderCellDef> TEMA </th>
+            <td mat-cell *matCellDef="let element" class="txt"> {{element.activity.nameTema}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="materia">
+            <th mat-header-cell *matHeaderCellDef> MATERIA </th>
+            <td mat-cell *matCellDef="let element" class="txt"> {{element.activity.materia.name}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef> FECHA </th>
+            <td mat-cell *matCellDef="let element" class="txt"> {{element.activity.fechaAsignada}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="fechaentrega">
+            <th mat-header-cell *matHeaderCellDef  mat-sort-header sortActionDescription="Sort by number"> FECHA DE ENTREGA</th>
+            <td mat-cell *matCellDef="let element" class="txt"> {{element.activity.fechaMaxEntrega}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="statusStudent">
+            <th mat-header-cell *matHeaderCellDef> ESTADO</th>
+            <td mat-cell *matCellDef="let element" class="txt">
+                <div *ngIf="element.statusEntrega!='ENTREGADO'" class="glassbox bg-brown" style="color: white;">
+                    SIN ENTREGAR
+                </div>
+                <div *ngIf="element.statusEntrega=='ENTREGADO'" class="glassbox bg-green" style="color: white;">
+                    ENTREGADO
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="statusDocente">
+            <th mat-header-cell *matHeaderCellDef> ESTADO</th>
+            <td mat-cell *matCellDef="let element" class="txt">
+                <div *ngIf="element.statusCalifica!='CALIFICADO'" class="glassbox bg-brown" style="color: white;">
+                    SIN CALIFICAR
+                </div>
+                <div *ngIf="element.statusCalifica=='CALIFICADO'" class="glassbox bg-green" style="color: white;">
+                    CALIFICADO
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="calificacion">
+            <th mat-header-cell *matHeaderCellDef> CALIFICACION </th>
+            <td mat-cell *matCellDef="let element" class="txt">
+                <div *ngIf="element.calificacion>=7" class="glassbox bg_white"> {{element.calificacion}}</div>
+                <div *ngIf="element.calificacion<=6" class="glassbox bg-brown"> {{element.calificacion}}</div>
+            </td>
+        </ng-container>
+
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

@@ -1,0 +1,80 @@
+<div class="glassbox">
+    <div class="btn" style="background-color: rgb(23, 50, 157); color: white;">
+        NUEVA ACTIVIDAD
+    </div>
+
+    <form class="example-form column">
+
+        <div class="row">
+            <mat-form-field class="example-full-width">
+                <mat-label>Tema</mat-label>
+                <input #tema type="text" matInput placeholder="">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Tipo de actividad</mat-label>
+                <mat-select [(ngModel)]="selectedTipAct" name="food">
+                    <mat-option *ngFor="let act of tipAct" [value]="act">
+                        {{act.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="example-full-width">
+                <mat-label>Materia</mat-label>
+                <mat-select [(ngModel)]="selectedMateria" name="food">
+                    <mat-option *ngFor="let mat of materias" [value]="mat">
+                        {{mat.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Fecha max entrega</mat-label>
+                <input #fechmax matInput [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="example-full-width">
+                <mat-label>Indicaciones</mat-label>
+                <input #indicaciones type="text" matInput placeholder="">
+            </mat-form-field>
+
+        </div>
+
+
+        <div style="margin-top: 5px; text-align: center; width: 100%; ">
+
+            <div class="container-input">
+                <input type="file" name="file-7" id="file-7" class="inputfile inputfile-7"
+                    (input)="onFilechange($event);" />
+                <label style="background-color: rgb(23, 50, 157); color: white; border-radius: 4px;" for="file-7"
+                    placeholder="Cargar Documento">
+                    <span class="iborrainputfile">{{nombredoc}}</span>
+                    <strong class="img-load">
+                        <img class="ico_load" src="/assets/images/investor/download.png" alt="">
+                    </strong>
+                </label>
+            </div>
+        </div>
+
+        <div class="containerBtnRow">
+
+
+            <div (click)="cerrarModal()" class="btn" style="background-color: rgb(196, 31, 31); color: white; ">
+                CANCELAR
+            </div>
+            <div (click)="putActivity(tema.value,fechmax.value,indicaciones.value)" class="btn"
+                style="background-color: rgb(23, 50, 157); color: white;">
+                ENVIAR
+            </div>
+        </div>
+
+
+    </form>
+</div>

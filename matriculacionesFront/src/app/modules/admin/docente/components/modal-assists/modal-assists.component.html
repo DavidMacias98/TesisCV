@@ -1,0 +1,43 @@
+<div>
+    <table mat-table [dataSource]="studentXassists" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> NOMBRE </th>
+            <td mat-cell *matCellDef="let element"> {{element.student.name}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="ape">
+            <th mat-header-cell *matHeaderCellDef> APELLIDO </th>
+            <td mat-cell *matCellDef="let element"> {{element.student.ape}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="whatsapp">
+            <th mat-header-cell *matHeaderCellDef> # REPRESENTANTE</th>
+            <td mat-cell *matCellDef="let element"> {{element.student.idRepre.whatsapp}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="asistencia">
+            <th mat-header-cell *matHeaderCellDef> ASISTENCIA</th>
+            <td mat-cell *matCellDef="let element">
+                <section class="example-section">
+                    <mat-checkbox
+                      [(ngModel)]="element.present" 
+                      (click)="present(element.id,element.present)"
+                      class="example-margin"></mat-checkbox>
+                  </section>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <button (click)="guardadoLogico()"
+    class="btn" style="color: white; background-color: brown;">
+        Guardar
+    </button>
+</div>
+
+
+

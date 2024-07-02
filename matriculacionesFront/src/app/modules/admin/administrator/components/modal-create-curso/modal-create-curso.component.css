@@ -1,0 +1,98 @@
+
+.body{
+    display: flexbox;
+    flex-direction: column;
+    gap: 5px 5px;
+    padding: 20px;
+    text-align: center;
+}
+
+.txt{
+    font-size: small;
+    font-weight: 550;
+}
+
+input {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #3490dc;
+    background-color: #ffffff;
+    border-radius: 0.375rem;
+    font-size: 1.125rem;
+    outline: none;
+    padding-left: 1.25rem;
+    /* Ajusta el padding horizontal izquierdo */
+    padding-right: 1.25rem;
+    height: 50px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
+}
+
+.containerBtnRow {
+    width: 100%;
+    padding: 2%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}
+
+
+.btn {
+    /* Estilos de fondo y color de texto */
+    background-color: orange;
+    /* Color de fondo del botón */
+    color: black;
+    /* Color del texto */
+    /* Estilos de borde y bordes redondeados */
+    border: none;
+    /* Sin borde */
+    border-radius: 4px;
+    /* Bordes redondeados */
+    /* Estilos de relleno interno */
+    padding: 10px 24px;
+    /* Relleno vertical y horizontal */
+    /* Estilos de sombra y elevación */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.50);
+    /* Sombra */
+    /* Estilos de tipografía */
+    font-size: 14px;
+    /* Tamaño de la fuente */
+    font-weight: 500;
+    /* Peso de la fuente */
+    text-transform: uppercase;
+    /* Transformación del texto a mayúsculas */
+    /* Estilos de cursor y efecto al pasar el ratón */
+    cursor: pointer;
+    /* Cambio del cursor al pasar el ratón */
+    transition: background-color 0.3s, color 0.3s;
+    /* Transición suave de colores */
+}
+
+/* Estilos cuando el botón está deshabilitado */
+.btn[disabled] {
+    opacity: 0.6;
+    /* Opacidad reducida */
+    cursor: not-allowed;
+    /* Cursor no permitido */
+}
+
+/* Estilos cuando el botón está en estado hover */
+.btn:hover {
+    background-color: rgb(218, 147, 17);
+    /* Color de fondo del botón al pasar el ratón */
+}

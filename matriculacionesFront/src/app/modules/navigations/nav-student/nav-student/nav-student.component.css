@@ -1,0 +1,69 @@
+li {
+    display: inline;
+  }
+  .cco {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(10, 27, 57);
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+  .active {
+    background-color: #4CAF50;
+}
+.example-container {
+    width: 100%;
+    height: 100%;
+  
+  }
+  
+  .example-sidenav-content {
+  
+    width: 100%;
+    height: 100%;
+
+  }
+  
+  .example-sidenav {
+  
+  }
+
+
+  .glassbox {
+    /* From https://css.glass */
+    background: #e9f3ff;
+    border-radius: 16px;
+    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* backdrop-filter: blur(10.5px);*/
+    /* -webkit-backdrop-filter: blur(10.5px);*/
+    /* border: 1px solid rgba(10, 116, 165, 0.02);*/
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.circular-image {
+  width: 100%; /* Ajusta el ancho según tus necesidades */
+  height: 100%; /* Ajusta la altura según tus necesidades */
+  border-radius: 50%; /* Hace que las esquinas formen un círculo */
+  object-fit: cover; /* Ajusta el tamaño de la imagen manteniendo la proporción y recortando si es necesario */
+  overflow: hidden; /* Evita que partes de la imagen se desborden del círculo */
+}

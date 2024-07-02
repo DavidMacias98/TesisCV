@@ -1,0 +1,73 @@
+.glassbox {
+    /* From https://css.glass */
+    background:  #44b678;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* backdrop-filter: blur(10.5px);*/
+    /* -webkit-backdrop-filter: blur(10.5px);*/
+    border: 1px solid rgba(10, 116, 165, 0.02);
+    width: max-content;
+    height:max-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px; 
+    flex-basis: 2%;
+    font-weight: 550;
+}   
+
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.bg-navy{
+    background:  navy;
+    color: white;
+    flex-basis: 2%;
+    font-weight: 550;
+}
+.bg-brown{
+    background:  brown;
+    color: white;
+    flex-basis: 2%;
+    font-weight: 550;
+}
+
+.bg-green{
+    background:  #44b678;
+    color: white;
+    flex-basis: 2%;
+    font-weight: 550;
+}
+
+
+.icoPay {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #FFFFFF;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath d='M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM176 256a112 112 0 1 1 224 0 112 112 0 1 1 -224 0zm76-48c0 9.7 6.9 17.7 16 19.6V276h-4c-11 0-20 9-20 20s9 20 20 20h24 24c11 0 20-9 20-20s-9-20-20-20h-4V208c0-11-9-20-20-20H272c-11 0-20 9-20 20z' fill='%23b80101' /%3E%3C/svg%3E");
+  }
+
+
+
+  
+
+  .scalar{
+  
+  }
+  .scalar:hover{
+  transform: scale(1.1);
+  background-color: orange;
+  }
+  
+  .icoDownload {
+    display: inline-block;
+    width: 24px;
+    height: 32px;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='32' width='24' viewBox='0 0 384 512'%3E%3Cpath d='M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM216 232V334.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z' fill='%23fff' /%3E%3C/svg%3E");
+    background-color: #44b678;
+  }

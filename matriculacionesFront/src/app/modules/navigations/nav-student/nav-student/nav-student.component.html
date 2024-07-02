@@ -1,0 +1,54 @@
+<div style="width: 100%; height: 100%; display: flex; flex-direction: column;">
+
+    <div style="width: 100%;">
+
+        <nav>
+            <div class="cco" style="display: flex; flex-direction: row; width: 100%;">
+                <li style="display: flex; justify-content: flex-start;width: 25%;">
+                    <a> <button style="background-color:  #a7c5e9;"mat-raised-button (click)="drawer.toggle()">
+                            Menu
+
+                        </button>
+                    </a>
+                </li>
+
+
+
+
+
+                <li style="display: flex; justify-content: center; width: 50%; margin-top: 10px; margin-right: 10px;">
+                    <button class="" style="background-color:  orange; " mat-raised-button> MODULO DE ESTUDIANTE
+                    </button>
+                </li>
+
+
+
+                <li style="display: flex; justify-content: flex-end; width: 20%; margin-top: 10px; margin-right: 10px;">
+                    <button style="background-color:  #a7c5e9;" mat-raised-button [matMenuTriggerFor]="menu"> HOLA
+                        {{sesion.name}} </button>
+                    <mat-menu #menu="matMenu">
+                        <button (click)="openModalCambiarContra()" mat-menu-item>Cambiar clave</button>
+                        <button (click)="cerrarSesion()" mat-menu-item>Cerrar sesion</button>
+                    </mat-menu>
+                </li>
+            </div>
+        </nav>
+    </div>
+
+
+    <mat-drawer-container class="example-container" [hasBackdrop]="'true'">
+
+        <mat-drawer class="example-sidenav" #drawer [mode]="'push'" style="width:280px;">
+            <app-nav-parameters></app-nav-parameters>
+        </mat-drawer>
+
+        <div style="display:flex ; flex-direction: column;  height: 100%;   background-color:white">
+            <div class="glassbox">
+                <ng-content class="example-sidenav-content"></ng-content>
+            </div>
+        </div>
+
+    </mat-drawer-container>
+
+
+</div>

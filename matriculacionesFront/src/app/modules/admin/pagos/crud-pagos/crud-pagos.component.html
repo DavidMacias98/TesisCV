@@ -1,0 +1,73 @@
+<app-nav-pagos>
+
+    <div style="display:flex ; flex-direction: column;  height: 100%; padding: 2%; width: 100%;">
+
+        <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <div class="glassbox" style="background-color:  #44b678; font-weight: bold; font-size: 20px; margin: 2% 0%   ;">CONTROL DE PAGOS</div>
+    
+    
+            <div style=" display: flex; flex-direction: row; width: 100%;">
+                <div style="width: 50% ; display: flex;">
+                   
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Buscar</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" placeholder="Name" value="">
+                    </mat-form-field>
+                </div>
+    
+                <div style="width: 50% ;">
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons #paginator
+                        aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </div>
+            </div>
+    
+    
+    
+    
+            <table mat-table [dataSource]="pagos" class="mat-elevation-z8">
+    
+                <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+    
+                <!-- Position Column -->
+                <ng-container matColumnDef="cedrepre">
+                    <th mat-header-cell *matHeaderCellDef> CEDULA REPRESENTANTE </th>
+                    <td mat-cell *matCellDef="let element"> {{element.cedulaRepre}} </td>
+                </ng-container>
+    
+                <!-- Name Column -->
+                <ng-container matColumnDef="cedstudent">
+                    <th mat-header-cell *matHeaderCellDef> CEDULA ESTUDIANTE </th>
+                    <td mat-cell *matCellDef="let element"> {{element.cedulaStudent}} </td>
+                </ng-container>
+    
+                <!-- Weight Column -->
+                <ng-container matColumnDef="curso">
+                    <th mat-header-cell *matHeaderCellDef> CURSO </th>
+                    <td mat-cell *matCellDef="let element"> {{element.curso?.name}} </td>
+                </ng-container>
+    
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="total">
+                    <th mat-header-cell *matHeaderCellDef> TOTAL A PAGAR  </th>
+                    <td mat-cell *matCellDef="let element"><div class="glassbox bg-green" >${{element.curso?.precio}}</div>  </td>
+                </ng-container>
+             
+                <ng-container matColumnDef="pagar">
+                    <th mat-header-cell *matHeaderCellDef> TOTAL A PAGAR  </th>
+                    <td mat-cell *matCellDef="let element"><div (click)="prePagar(element.id)"
+                        class="glassbox row bg-green scalar"> <div>PAGAR</div>  <div class="icoPay"></div>  </div> </td>
+                </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    
+    </div>
+
+
+
+
+</app-nav-pagos>

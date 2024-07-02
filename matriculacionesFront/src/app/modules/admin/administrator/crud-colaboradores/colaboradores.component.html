@@ -1,0 +1,69 @@
+<div style="width: max-content;">
+    <hr style=" height:2px;background:#000; ">
+    <span class="txt"> LISTA DE COLABORADORES</span>
+    <hr style=" height:2px;background:#000; ">
+    <br>
+</div>
+
+<button  (click)="showAddUser()" style="background-color: #0a4863ff; color: white; margin-bottom: 5px;"  mat-raised-button>Crear nuevo colaborador</button>
+<div class="  rowcontrol" style="width: 100%; ">
+
+    <div style="width: 30% ; display: flex;flex-direction: row; justify-content: flex-start; height: 40px;">
+        <input (keyup)="applyFilter($event)"  type="search" placeholder="Buscar">
+    </div>
+    <div style="width: 70%; display: flex; justify-content: flex-end;">
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons #paginator
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+    </div>
+</div>
+
+<table mat-table [dataSource]="colabs" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> NOMBRE </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="ape">
+        <th mat-header-cell *matHeaderCellDef> APELLIDO </th>
+        <td mat-cell *matCellDef="let element"> {{element.ape}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="whatsapp">
+        <th mat-header-cell *matHeaderCellDef> WHATSAPP </th>
+        <td mat-cell *matCellDef="let element"> {{element.whatsapp}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="usser">
+        <th mat-header-cell *matHeaderCellDef> USUARIO </th>
+        <td mat-cell *matCellDef="let element"> {{element.usser}} </td>
+    </ng-container>
+    <ng-container matColumnDef="rol">
+        <th mat-header-cell *matHeaderCellDef> ROL </th>
+        <td mat-cell *matCellDef="let element">
+            <div *ngIf="element.rol=='docente'" class="glassbox" style="color: white;  background-color: mediumseagreen;">DOCENTE </div>
+            <div *ngIf="element.rol=='agente'" class="glassbox" style="color: white; background-color: darkgoldenrod;"> AGENTE </div>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="activo">
+        <th mat-header-cell *matHeaderCellDef> ACTIVO </th>
+        <td mat-cell *matCellDef="let element">
+            <section class="example-section">
+                <mat-checkbox  (click)="switch(element.id)"
+                [(ngModel)]="element.activo" class="example-margin"></mat-checkbox>
+            </section>
+
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

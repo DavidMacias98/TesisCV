@@ -1,0 +1,21 @@
+
+    <div class="txt glassbox" style="background-color:  #44b678;">MI DASHBOARD</div>
+
+  
+        <div class="row"
+            style="justify-content: center;">
+
+            <div *ngFor="let item of dataAssist" class="glassbox"
+                style="justify-content: center; width: max-content; display: flex; flex-direction: column; ">
+                <div>ASISTENCIAS DE {{item.student}}</div>
+                
+                
+
+
+
+                <ngx-charts-pie-grid [view]="view" [results]="item.data" (select)="onSelect($event)">
+                </ngx-charts-pie-grid>
+            </div>
+        
+
+    </div>

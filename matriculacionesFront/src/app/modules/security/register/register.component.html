@@ -1,0 +1,95 @@
+<div class="glassbox" style="justify-content: center;align-items: center;">
+    <div class="title" >
+        FORMULARIO DE REGISTRO
+    </div>
+    <form class="example-form column">
+
+        <div class="row">
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombres</mat-label>
+                <input #name type="text" matInput placeholder="">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Apellidos</mat-label>
+                <input #ape type="text" matInput placeholder="">
+            </mat-form-field>
+
+            <mat-form-field *ngIf="activeRolAdmin" class="example-full-width">
+                <mat-label>Rol</mat-label>
+                <mat-select (selectionChange)="onRolSelected($event)">
+                    <mat-option value="docente">DOCENTE</mat-option>
+                    <mat-option value="agente">AGENTE</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="example-full-width">
+                <mat-label>Correo</mat-label>
+                <input #correo type="text" matInput placeholder="">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Contraseña</mat-label>
+                <input #pass type="password" matInput placeholder="">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="example-full-width">
+                <mat-label>Whasapp</mat-label>
+                <input #whatsapp type="text" matInput placeholder="">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Documento</mat-label>
+                <input #documento type="text" matInput placeholder="">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="example-full-width">
+                <mat-label>Direccion</mat-label>
+                <input #direccion type="text" matInput placeholder="">
+            </mat-form-field>
+        </div>
+
+
+
+        <div *ngIf="data.bandera!='newstudent'" style="margin-top: 5px; text-align: center; width: 100%; ">
+             
+            
+            <div style="display: flex; width:100%; ">
+                <div class="container-input">
+                    <input type="file" name="fileDocument" id="fileDocument" class="inputfile inputfile-7"
+                        (input)="onFile($event,0);" />
+                    <label style="background-color:#0a4863ff; color: white; border-radius: 4px; width: 100%; "
+                        for="fileDocument" placeholder="Cargar Documento">
+                        <span class="iborrainputfile">{{nombreDocIde}}</span>
+                        <div style="margin-left: 10px;" class="icoUpload"></div>
+
+                    </label>
+                </div>
+            </div>
+
+            <div style="display: flex;  width:100%;  ">
+                <div class="container-input">
+                    <input type="file" name="filePhoto" id="filePhoto" class="inputfile inputfile-7"
+                        (input)="onFile($event,1);" />
+                    <label style="background-color:#0a4863ff; color: white; border-radius: 4px; width: 100%; "
+                        for="filePhoto" placeholder="Cargar foto de perfil">
+                        <span class="iborrainputfile">{{nombrePhoto}}</span>
+                        <div style="margin-left: 10px;" class="icoUpload"></div>
+                    </label>
+                </div>
+            </div>  
+
+
+        </div>
+            <mat-card-actions class="containerBtnRow">
+                <button (click)="addUser(name.value,ape.value,correo.value,pass.value,whatsapp.value,documento.value)"
+                 style="background-color: #0a4863ff; color: white;" mat-button>ENVIAR</button>
+                <button (click)="cerrar()" mat-button>CANCELAR</button>
+            </mat-card-actions>
+
+    </form>
+</div>

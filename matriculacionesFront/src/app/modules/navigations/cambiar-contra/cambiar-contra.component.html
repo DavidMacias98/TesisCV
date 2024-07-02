@@ -1,0 +1,41 @@
+<div class="glassbox">
+
+
+    <div class="txt glassbox" style="background-color:  #44b678; width:100%;  margin: 2%;">CAMBIAR CLAVE</div>
+
+    <form class="example-form column">
+
+        <div class="row">
+
+            <mat-form-field class="example-full-width">
+                <mat-label>CONTRASEÑA ACTUAL</mat-label>
+                <input #actual matInput placeholder="Clave" type="password" min="1" pattern="^[0-9]+">
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width">
+                <mat-label>NUEVA CONTRASEÑA</mat-label>
+                <input #nueva matInput placeholder="Repetir clave" type="password" min="1" pattern="^[0-9]+">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="example-full-width">
+                <mat-label>REPETIR CONTRASEÑA</mat-label>
+                <input #repetir matInput placeholder="Nueva clave" type="password" min="1" pattern="^[0-9]+">
+            </mat-form-field>
+        </div>
+
+        <div class="containerBtnRow">
+            <div (click)="cambiar(actual.value, nueva.value, repetir.value)"
+            class="scalar example-full-width txt glassbox" style="background-color: rgb(23, 50, 157); color: white;">
+                ENVIAR
+            </div>
+
+            <div (click)="cerrarModal()" class=" scalar example-full-width txt glassbox" style="background-color: rgb(196, 31, 31); color: white; ">
+                CANCELAR
+            </div>
+        </div>
+
+
+    </form>
+</div>

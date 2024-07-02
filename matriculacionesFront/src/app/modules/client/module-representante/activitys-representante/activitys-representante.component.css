@@ -1,0 +1,115 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+::ng-deep .mat-select-panel {
+    border-radius: 10px;
+    /* Ajusta el valor según sea necesario para obtener el redondeo deseado */
+}
+
+
+
+.glassbox {
+    /* From https://css.glass */
+    background: #44b678;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* backdrop-filter: blur(10.5px);*/
+    /* -webkit-backdrop-filter: blur(10.5px);*/
+    border: 1px solid rgba(10, 116, 165, 0.02);
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    color: white;
+
+}
+
+.txt {
+    flex-basis: 2%;
+    font-weight: 550;
+    font-size: 15px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.bg-navy {
+    background: navy;
+    color: white;
+    flex-basis: 2%;
+    font-weight: 550;
+}
+
+.bg-green {
+    background: #44b678;
+    color: white;
+    flex-basis: 2%;
+    font-weight: 550;
+}
+
+
+.icoPay {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #FFFFFF;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath d='M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM176 256a112 112 0 1 1 224 0 112 112 0 1 1 -224 0zm76-48c0 9.7 6.9 17.7 16 19.6V276h-4c-11 0-20 9-20 20s9 20 20 20h24 24c11 0 20-9 20-20s-9-20-20-20h-4V208c0-11-9-20-20-20H272c-11 0-20 9-20 20z' fill='%23b80101' /%3E%3C/svg%3E");
+}
+
+.scalar {}
+
+.scalar:hover {
+    transform: scale(1.1);
+    background-color: orange;
+}
+
+.icoSucces {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='16' viewBox='0 0 512 512'%3E%3Cpath d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z' fill='%232b3945' /%3E%3C/svg%3E");
+    background-color: #44b678;
+}
+
+.icoError {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='16' viewBox='0 0 512 512'%3E%3Cpath d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z' fill='%232b3945' /%3E%3C/svg%3E");
+    background-color: rgb(184, 1, 1);
+}
+
+.bg-brown{
+    background:  brown;
+    color: white;
+    flex-basis: 2%;
+    font-weight: 550;
+}
+
+.bg-green{
+    background:  #44b678;
+    color: white;
+    flex-basis: 2%;
+    font-weight: 550;
+}
+
+.scrollbar_ {
+    overflow: scroll;
+    height:max-content;
+    max-height: 70vh;
+    
+    }
+
+
+
+
+
+
+
+    

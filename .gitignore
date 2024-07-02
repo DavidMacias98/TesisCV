@@ -12,3 +12,6 @@ buildNumber.properties
 
 # Ignorar el archivo application.yml
 application.yml
+
+# Ignorar la carpeta node_modules generada por Angular
+node_modules/

@@ -1,0 +1,150 @@
+  <div style="display:flex ; flex-direction: row;  height: 100%;">
+
+
+
+    <div style="    width: 100%;
+    background-color: #e9f3ff; ">
+
+      <div class="glassbox txt" style="background-color:#44b678; color: black; width: max-content;">
+        PROCESO DE MATRICULACION
+      </div>
+
+
+
+      <div *ngIf="students">
+        <mat-stepper (selectionChange)="onStepperSelectionChange($event)" [linear]="isLinear"
+          [orientation]="getStepperOrientation()" [linear]="isLinear" #stepper>
+          <!-- Contenido de los pasos -->
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>SELECIONAR ESTUDIANTE</ng-template>
+
+
+              <mat-form-field class="example-full-width">
+                <mat-label>Estudiante</mat-label>
+                <mat-select [(ngModel)]="studentSelected" name="food" formControlName="student" required>
+                  <mat-option *ngFor="let mat of students" [value]="mat">
+                    {{mat.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+              <div>
+                <button mat-button matStepperNext>SIGUIENTE</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+              <ng-template matStepLabel>SELECCIONAR CURSO</ng-template>
+              <mat-form-field class="example-full-width">
+                <mat-label>CURSOS</mat-label>
+                <mat-select [(ngModel)]="cursoSeleted" formControlName="curso" name="cursos">
+                  <mat-option *ngFor="let mat of cursos " [value]="mat">
+                    {{mat.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>REGRESAR</button>
+                <button mat-button matStepperNext>SIGUIENTE</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="treeFormGroup">
+            <ng-template matStepLabel>TERMINOS</ng-template>
+            <form [formGroup]="treeFormGroup">
+              <mat-checkbox formControlName="licitud" class="example-margin">ACEPTA LICITUD DE FONDOS</mat-checkbox>
+              <div>
+                <button mat-button (click)="Matricular()">GUARDAR</button>
+              </div>
+            </form>
+            <button mat-button matStepperPrevious>REGRESAR</button>
+
+          </mat-step>
+        </mat-stepper>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="glassbox txt" style="background-color:#44b678; color: black; width: max-content;">
+        ORDENES DE PAGO
+      </div>
+      <div s class="scrollbar_">
+
+        <div style="width: max-content;">
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons #paginator
+              aria-label="Select page of periodic elements">
+          </mat-paginator>
+      </div>
+        <table mat-table [dataSource]="orders" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="codigo">
+            <th mat-header-cell *matHeaderCellDef> Codigo </th>
+            <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="estudiante">
+            <th mat-header-cell *matHeaderCellDef> Estudiante </th>
+            <td mat-cell *matCellDef="let element"> {{element.nameStudent}}</td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="curso">
+            <th mat-header-cell *matHeaderCellDef> Curso </th>
+            <td mat-cell *matCellDef="let element"> {{element.curso.name}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="fechaCreada">
+            <th mat-header-cell *matHeaderCellDef> Fecha </th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaCreada}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechaPago">
+            <th mat-header-cell *matHeaderCellDef> Fecha Max Pago </th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaMaxPago}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let element"> {{element.status.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="documents">
+            <th mat-header-cell *matHeaderCellDef> Documentos </th>
+            <td mat-cell *matCellDef="let element">
+              <div (click)="addDocs(element.estudiante.id,element.estudiante.imgDoc,element.estudiante.imgVac)"
+                style="padding: 2%; background-color: #44b678; width: max-content; border-radius: 4px; color: white;">
+                {{element.imgDoc? "Subir Documentos" : 'Ver documentos'}}
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+
+    </div>
+  </div>

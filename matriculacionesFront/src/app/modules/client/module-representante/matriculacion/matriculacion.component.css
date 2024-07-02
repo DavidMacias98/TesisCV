@@ -1,0 +1,52 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-stepper-vertical {
+    margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+    margin-top: 16px;
+}
+
+.glassbox {
+    /* From https://css.glass */
+    background-color: transparent;
+    border-radius: 16px;
+    width: 400px;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    margin: 10px;
+}
+
+.txt {
+    flex-basis: 2%;
+    font-weight: 550;
+  }
+
+
+  mat-stepper.horizontal {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  /* Estilos para orientación vertical */
+  mat-stepper.vertical {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .scrollbar_ {
+    overflow: scroll;
+    height:max-content;
+    max-height: 70vh;
+    
+    }

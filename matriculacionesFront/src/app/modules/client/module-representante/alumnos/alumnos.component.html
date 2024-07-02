@@ -1,0 +1,31 @@
+<div class="txt"
+    style="background-color: #0a4863ff; width: max-content; padding: 5px; border-radius: 4px; color: white; "
+    mat-raised- mat-button>
+    MIS ESTUDIANTES
+</div>
+<div class="column">
+
+    <div class="row" style="height:50em ; flex-wrap: wrap; ">
+
+        <mat-card style="gap: 2px;" class="glassbox" *ngFor="let item of dataSource.data">
+            <div class="title">{{item.name}} {{item.ape}}</div>
+           
+                <div style="width: 100px;" >
+                    <img  style="width:100%; border-radius: 50%; " src={{item.imgPerfi}} alt="">
+                </div>
+            
+            <div class="glassboxleft">
+
+               
+
+                <button mat-button>CURSO: <span *ngIf="!item.currentCurso">Sin asignar</span>{{item.currentCurso}}</button>
+                <button mat-button>IDENTIFICACION: {{item.document}}</button>
+                <button mat-button>CORREO: {{item.usser}}</button>
+                <button mat-button>CONTRASEÑA: {{item.pass}}</button>
+
+            </div>  
+        </mat-card>
+    </div>
+
+
+</div>

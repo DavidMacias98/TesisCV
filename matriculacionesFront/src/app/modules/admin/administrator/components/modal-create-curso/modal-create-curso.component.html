@@ -1,0 +1,33 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<body class="body">
+    <hr style=" height:2px;background:#000">
+    <span class="txt">INGRESAR LOS DATOS PARA CREAR EL NUEVO CURSO</span>
+    <hr style=" height:2px;background:#000">
+    <br>
+
+
+
+    <form [formGroup]="firstFormGroup" class=" column">
+
+        <div class="row">
+            <input #name type="text" matInput placeholder="Nombre del curso" formControlName="NameCurso" required>
+            <input #price type="text" matInput placeholder="Precio de matriculacion" formControlName="PriceCurso"
+                required>
+        </div>
+
+        <div class="row">
+            <input #edad type="number" matInput placeholder="Edad escolar" formControlName="NameCurso" required>
+            <input #orde type="number" matInput placeholder="Orden cronologico" formControlName="PriceCurso"
+                required>
+        </div>
+
+
+        <mat-card-actions class="containerBtnRow">
+            <button class="btn" (click)="putCurso(name.value,price.value,edad.value,orde.value)" >ENVIAR</button>
+            <button class="btn" (click)="closeModal()" style="background-color: white;" >CANCELAR</button>
+        </mat-card-actions>
+       
+    </form>
+
+</body>

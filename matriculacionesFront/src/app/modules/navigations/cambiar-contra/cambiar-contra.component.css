@@ -1,0 +1,62 @@
+.glassbox {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.5px);
+    -webkit-backdrop-filter: blur(10.5px);
+    border: 1px solid rgba(10, 116, 165, 0.02);
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    height: max-content;
+}
+
+.txt {
+    flex-basis: 2%;
+    font-weight: 550;
+}
+
+.example-form {
+
+
+    width: 100%;
+
+}
+
+.example-full-width {
+    width: 100%;
+    margin: 1%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.containerBtnRow {
+    width: 100%;
+    padding: 2%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.custom-dialog-container .mat-dialog-container {
+    background-color: black;
+}
+
+.scalar {}
+
+.scalar:hover {
+    transform: scale(1.2);
+
+}

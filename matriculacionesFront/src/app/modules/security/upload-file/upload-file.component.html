@@ -1,0 +1,55 @@
+<div class="glassbox column">
+    <div class="glassbox txt" style="background-color:#44b678; width: max-content;">
+        CARGA DE DOCUMENTOS DEL ESTUDIANTE
+    </div>
+
+    <form class="example-form column">
+
+        <div style="display: flex; justify-content: center;align-items: center; width:100%; ">
+            <div class="container-input">
+                <input type="file" name="file-7" id="file-7" class="inputfile inputfile-7"
+                    (input)="onFile($event,0);" />
+                <label style="background-color: rgb(214, 209, 209); color: black; border-radius: 4px; width: 100%;"
+                    for="file-7" placeholder="Cargar Documento">
+                    <span class="iborrainputfile">{{nombreDocIde}}</span>
+                    <div class="icoUpload"></div>
+                    <strong class="img-load">
+                        <img class="ico_load" src="/assets/images/investor/download.png" alt="">
+                    </strong>
+                </label>
+            </div>
+            <div *ngIf="data.file2"> <a href={{data.file1}}>ver img </a></div>
+        </div>
+
+        <div style="display: flex; justify-content: center;align-items: center; width:100%; ">
+            <div class="container-input">
+                <input type="file" name="fileVac" id="fileVac" class="inputfile inputfile-7"
+                    (input)="onFile($event,1);" />
+                <label style="background-color: rgb(214, 209, 209); color: black; border-radius: 4px; width: 100%;"
+                    for="fileVac" placeholder="Cargar Documento">
+                    <span class="iborrainputfile">{{nombreDocVac}}</span>
+                    <div class="icoUpload"></div>
+                    <strong class="img-load">
+                        <img class="ico_load" src="/assets/images/investor/download.png" alt="">
+                    </strong>
+                </label>
+            </div>
+            <div *ngIf="data.file2"> <a href={{data.file2}}>ver img </a></div>
+        </div>
+
+        <br>
+        <hr />
+        <br>
+
+        <div class="containerBtnRow">
+
+            <div class="glassbox" style="background-color:brown; color: white; ">
+                CANCELAR
+            </div>
+
+            <div (click)="upload()" class="glassbox" style="background-color: navy; color: white;">
+                ENVIAR
+            </div>
+        </div>
+    </form>
+</div>
