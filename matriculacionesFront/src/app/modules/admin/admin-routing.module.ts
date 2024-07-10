@@ -48,7 +48,9 @@ const routes: Routes = [
       {
         path: 'activitys/detalle', component: DetalleActivityComponent  
       },
-      
+      {
+        path: 'webuser', component: GuestWebUserComponent  
+      },
       // Define las rutas específicas del módulo Admin aquí
       // Por ejemplo: { path: 'dashboard', component: DashboardComponent },
     ],
