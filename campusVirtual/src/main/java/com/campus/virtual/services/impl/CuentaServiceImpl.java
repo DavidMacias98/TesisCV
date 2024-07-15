@@ -268,6 +268,7 @@ public class CuentaServiceImpl implements CuentaService {
 			}
 		}
 		
+		
 		return userLog;
 	}
 	

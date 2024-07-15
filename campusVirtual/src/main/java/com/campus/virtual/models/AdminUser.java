@@ -3,6 +3,7 @@ package com.campus.virtual.models;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -38,6 +39,13 @@ import lombok.Setter;
 @Table(name = "admin_user", schema = "cuenta")
 @JsonIgnoreProperties(  value = {"pass"}, allowGetters = false, allowSetters = true)
 public class AdminUser implements Serializable {
+	
+	   @OneToOne(mappedBy = "docente", fetch = FetchType.LAZY)
+	   @JoinColumn()
+	  // @JsonIgnoreProperties(value = {"docente"}, allowSetters=true, allowGetters = true)
+	   @JsonBackReference
+	   private CatalogoCursos curso;
+	
 	
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -77,14 +85,14 @@ public class AdminUser implements Serializable {
 	@Column(name = "nameCurso" )
 	private String nameCurso;
 	
-	
+	@Column(name = "idCurso")
+	private Long idCurso;
 	
 //	@JsonInclude(JsonInclude.Include.NON_NULL)
 //	@JsonBackReference
 //	@JsonManagedReference
-	@JsonIgnore
-	@OneToOne()
-	private CatalogoCursos curso;
+//	@JsonIgnore
+	
 	
 //	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 //	@OneToOne( cascade = CascadeType.ALL)

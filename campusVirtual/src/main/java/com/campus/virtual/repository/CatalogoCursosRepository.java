@@ -12,7 +12,7 @@ public interface CatalogoCursosRepository extends JpaRepository<CatalogoCursos, 
 
 
 		@Query("select a from CatalogoCursos  a")
-		List<?> getAllCurso();
+		List<CatalogoCursos> getAllCurso();
 	
 
 		@Query("select a from CatalogoCursos  a where a.orde=:orde")

@@ -17,7 +17,7 @@ public interface CuentaAdminRepository extends JpaRepository<AdminUser, Long>{
 	List<AdminUser>  GetAllByRol();
 	
 	
-	@Query("select u from AdminUser u where u.rol = 'docente'  and u.curso is null")
+	@Query("select u from AdminUser u where u.rol = 'docente' ")
 	List<AdminUser>  getColabsToCurso();
 	
 }

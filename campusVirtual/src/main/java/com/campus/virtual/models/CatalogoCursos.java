@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
@@ -38,6 +40,12 @@ import lombok.Setter;
 @Table(name = "cursos", schema = "catalogos")
 //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class CatalogoCursos   {
+	 @OneToOne()
+	 @JoinColumn()
+	 //@JsonIgnoreProperties(value = {"curso"}, allowSetters=true, allowGetters = true)
+	 @JsonManagedReference
+	 private AdminUser docente;
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,8 +62,9 @@ public class CatalogoCursos   {
 //	@JsonInclude(JsonInclude.Include.NON_NULL)
 //	@JsonBackReference
 //	@JsonManagedReference
-	@OneToOne()
-	private AdminUser docente;
+	 
+	
+	 
 	
 	@Column(nullable = true)
 	private int orde;

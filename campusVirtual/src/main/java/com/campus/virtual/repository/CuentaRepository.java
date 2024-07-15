@@ -21,7 +21,7 @@ public interface CuentaRepository extends JpaRepository<WebUser, Long>{
 	AdminUser findByUsserAdmin(String usser);
 
 	
-	@Query("select u from WebUser u where u.rol <> '1'")
+	@Query("select u from WebUser u where u.rol <> 'admin'")
 	List<WebUser> getAllWebUser();
 	
 	@Query("select u from WebUser u where u.idRepre.id = :repre")

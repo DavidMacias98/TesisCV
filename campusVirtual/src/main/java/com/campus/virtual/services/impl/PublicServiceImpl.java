@@ -2,6 +2,8 @@ package com.campus.virtual.services.impl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,9 @@ import com.campus.virtual.services.PublicService;
 
 @Service
 public class PublicServiceImpl implements PublicService {
+	
+	private static final Logger logger = LoggerFactory.getLogger(PublicServiceImpl.class);
+
 	
 	@Autowired
 	private CatalogoCursosRepository cursoRepo;
@@ -42,7 +47,9 @@ public class PublicServiceImpl implements PublicService {
 	@Override
 	public Object getAllCursos() throws Exception {
 		// TODO Auto-generated method stub
-		return this.cursoRepo.getAllCurso();
+		List<CatalogoCursos> cursos =  this.cursoRepo.getAllCurso();
+		
+		 return cursos;
 	}
 	
 
@@ -72,11 +79,14 @@ public class PublicServiceImpl implements PublicService {
 		curso= this.cursoRepo.findById(idCurso).get();
 		
 		curso.setDocente(docente);
-		docente.setCurso(curso);
-		docente.setNameCurso(curso.getName());
-//		docente.setCurso(curso);
-		this.AdminUserRepo.save(docente);
 		this.cursoRepo.save(curso);
+		logger.info("Docente se grabo en el curso");
+		docente.setCurso(curso);
+		docente.setIdCurso(curso.getId());
+		docente.setNameCurso(curso.getName());
+		this.AdminUserRepo.save(docente);
+		logger.info("Curso se grabo en el docente");
+
 		return "ok";
 	}
 	
