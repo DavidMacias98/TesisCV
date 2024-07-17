@@ -1,5 +1,6 @@
 package com.campus.virtual.controller;
 
+import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -19,6 +20,7 @@ import com.campus.virtual.services.OrdenPagoService;
 import com.campus.virtual.services.PublicService;
 import com.campus.virtual.services.RepresentanteService;
 import com.campus.virtual.services.ServicesUtils;
+import com.microsoft.azure.storage.core.Logger;
 
 
 @RestController
@@ -226,14 +228,14 @@ public class AdminController {
 	}
 	
 	@PostMapping("admin/get/getStudentConciliados")
-	public ResponseEntity<?> getStudentConciliados() throws Exception {
+	public ResponseEntity<?> getStudentConciliados(  ) throws Exception {
 		Object response;
 		try {
-			response = this.cuentaService.getStudentConciliados();
+			
+			response = this.cuentaService.getStudentConciliadosForAdmin();
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body(new BadResponse(e.getMessage()));
 		}
-		
 		return ResponseEntity.ok().body(response);
 	}
 	

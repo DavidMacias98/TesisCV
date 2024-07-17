@@ -17,8 +17,10 @@ import com.campus.virtual.models.BadResponse;
 import com.campus.virtual.models.Response;
 import com.campus.virtual.services.ActivityService;
 import com.campus.virtual.services.AsistenciasService;
+import com.campus.virtual.services.CuentaService;
 import com.campus.virtual.services.OrdenPagoService;
 import com.campus.virtual.services.PublicService;
+import com.microsoft.azure.storage.core.Logger;
 
 @RestController
 public class DocenteController {
@@ -31,6 +33,9 @@ public class DocenteController {
 	
 	@Autowired
 	private ActivityService activityService;
+	
+	@Autowired
+	private CuentaService cuentaService;
 	
 	
 	
@@ -172,6 +177,22 @@ public class DocenteController {
 	}
 	
 	
+	@PostMapping("doc/get/getStudentConciliados")
+	public ResponseEntity<?> getStudentConciliados(@RequestParam String idCurso) throws Exception {
+		Object response;
+		try {
+			Long curso=null;
+			Logger.info(null, idCurso);
+			if(idCurso!=null || idCurso!="") {
+				
+				curso=Long.parseLong(idCurso);
+			}
+			response = this.cuentaService.getStudentConciliados(curso);
+		} catch (Exception e) {
+			return ResponseEntity.badRequest().body(new BadResponse(e.getMessage()));
+		}
+		return ResponseEntity.ok().body(response);
+	}
 	
 	
 	

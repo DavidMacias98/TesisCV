@@ -39,9 +39,13 @@ public interface CuentaRepository extends JpaRepository<WebUser, Long>{
 	@Query("select u from WebUser u where u.rol in ('repre') and u.conciliado =true ")
 	List<WebUser> getRepresentanteConciliados();
 	
-	@Query("select u from WebUser u where u.rol in ('student') and u.conciliado =true ")
-	List<WebUser> getStudentConciliados();
+	@Query("select u from WebUser u where u.rol in ('student') and u.conciliado =true  and u.currentCurso.id =:idCruso")
+	List<WebUser> getStudentConciliados(Long idCruso);
 		
+	@Query("select u from WebUser u where u.rol in ('student') and u.conciliado =true ")
+	List<WebUser> getStudentConciliadosForAdmin( );
+	
+	
 	
 	
 	

@@ -369,9 +369,17 @@ public class CuentaServiceImpl implements CuentaService {
 	}
 	
 	@Override
-	public  List<WebUser> getStudentConciliados() throws Exception {		
-		return this.cuentaRepo.getStudentConciliados();
+	public  List<WebUser> getStudentConciliados(Long idCurso) throws Exception {	
+		
+		return this.cuentaRepo.getStudentConciliados(idCurso);
 	}
+	
+	@Override
+	public  List<WebUser> getStudentConciliadosForAdmin() throws Exception {	
+		
+		return this.cuentaRepo.getStudentConciliadosForAdmin();
+	}
+	
 	
 	
 	

@@ -50,7 +50,7 @@ public interface CuentaService {
 	Object switchActiveDocente (Long usser)throws Exception;
 	
 	Object getRepresentanteConciliados ()throws Exception;
-	Object getStudentConciliados ()throws Exception;
-	
+	Object getStudentConciliados (Long idCurso)throws Exception;
+	Object getStudentConciliadosForAdmin()throws Exception;
 	
 }
