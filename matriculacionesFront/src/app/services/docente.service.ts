@@ -180,7 +180,7 @@ let data=this.http.put<Array<any>>( API_SERVER,param,httpOptions).pipe(
 
 
 getStudentConciliados(formData:any): Observable<Array<any>> {
-  const API_SERVER =  environment.URL_BASE +'/admin/get/getStudentConciliados';
+  const API_SERVER =  environment.URL_BASE +'/doc/get/getStudentConciliados';
  const headers: any ={
    "Authorization": 'Bearer ' 
 };
