@@ -179,7 +179,21 @@ let data=this.http.put<Array<any>>( API_SERVER,param,httpOptions).pipe(
 
 
 
-
+getStudentConciliados(formData:any): Observable<Array<any>> {
+  const API_SERVER =  environment.URL_BASE +'/admin/get/getStudentConciliados';
+ const headers: any ={
+   "Authorization": 'Bearer ' 
+};
+//Post options pass it to HttpHeaders Class 
+ const httpOptions = {
+    headers: new HttpHeaders(headers),
+};
+ //const service = this.dataObj.restAPI.filter((m: any) => m.name === 'Paises')[0];
+let data=this.http.post<Array<any>>( API_SERVER,formData,httpOptions).pipe(
+  catchError(this.handleError))
+ console.log(data)
+ return data
+}
 
 
 

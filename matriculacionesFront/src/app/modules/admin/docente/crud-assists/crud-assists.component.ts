@@ -25,6 +25,7 @@ export class CrudAssistsComponent {
     , public docenteService: DocenteService){
     this.CurrentUser= localStorage.getItem("sesion")
     this.CurrentUser=JSON.parse(this.CurrentUser)
+    console.log("este es el token de sesion", "  ", this.CurrentUser)
    this.getAssists()
   }  
 

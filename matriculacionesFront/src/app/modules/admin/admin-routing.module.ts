@@ -11,7 +11,7 @@ import { CrudStudentToValidateComponent } from './administrator/crud-student-to-
 import { CrudPagosComponent } from './pagos/crud-pagos/crud-pagos.component';
 import { DetalleActivityComponent } from './docente/detalle-activity/detalle-activity.component';
 import { GuestWebUserComponent } from './administrator/guest-web-user/guest-web-user.component';
-
+import { GuestStudentComponent } from './docente/guest-student/guest-student';
 const routes: Routes = [
 
   {
@@ -48,7 +48,9 @@ const routes: Routes = [
       {
         path: 'activitys/detalle', component: DetalleActivityComponent  
       },
-      
+      {
+        path: 'webuser', component: GuestStudentComponent  
+      },
       // Define las rutas específicas del módulo Admin aquí
       // Por ejemplo: { path: 'dashboard', component: DashboardComponent },
     ],

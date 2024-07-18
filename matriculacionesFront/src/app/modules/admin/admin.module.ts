@@ -42,6 +42,7 @@ import { ModalCreateCursoComponent } from './administrator/components/modal-crea
 import { MatCardModule } from '@angular/material/card';
 import { GuestWebUserComponent } from './administrator/guest-web-user/guest-web-user.component';
 import { ModalCrudMateriasByCrusoComponent } from './administrator/components/modal-crud-materias-by-cruso/modal-crud-materias-by-cruso.component';
+import { GuestStudentComponent } from './docente/guest-student/guest-student';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,9 @@ import { ModalCrudMateriasByCrusoComponent } from './administrator/components/mo
     ModalCalificarComponent,
     ModalCreateCursoComponent,
     GuestWebUserComponent,
+    GuestStudentComponent,
     ModalCrudMateriasByCrusoComponent,
+
     
   ],
   imports: [

@@ -18,7 +18,7 @@
 
                
 
-                <button mat-button>CURSO: <span *ngIf="!item.currentCurso">Sin asignar</span>{{item.currentCurso}}</button>
+                <button mat-button>CURSO: <span *ngIf="!item.currentCurso">Sin asignar</span>{{item.currentCurso?.name}}</button>
                 <button mat-button>IDENTIFICACION: {{item.document}}</button>
                 <button mat-button>CORREO: {{item.usser}}</button>
                 <button mat-button>CONTRASEÑA: {{item.pass}}</button>

@@ -3,16 +3,17 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { AdminService } from 'src/app/services/admin.service';
 import { PublicServicesService } from 'src/app/services/public-services.service';
-import { ModalDocumentsComponent } from '../components/modal-documents/modal-documents.component';
+import { ModalDocumentsComponent } from '../../administrator/components/modal-documents/modal-documents.component'; 
 import { MatTableDataSource } from '@angular/material/table';
 import Swal from 'sweetalert2';
+import { DocenteService } from 'src/app/services/docente.service';
 
 @Component({
-  selector: 'app-guest-web-user',
-  templateUrl: './guest-web-user.component.html',
-  styleUrls: ['./guest-web-user.component.css']
+  selector: 'app-guest-student',
+  templateUrl: './guest-student.html',
+  styleUrls: ['./guest-student.css']
 })
-export class GuestWebUserComponent {
+export class GuestStudentComponent {
 
   webUsers: any
   CurrentUser: any
@@ -23,10 +24,11 @@ export class GuestWebUserComponent {
   displayedComboBox:any= [{name:'Representante'},{name:'Estudiante'}];
 
   constructor(private adminService: AdminService, public publicServices: PublicServicesService, public dialog: MatDialog,
+    private docenteService: DocenteService
   ) {
     this.CurrentUser = localStorage.getItem("sesion")
     this.CurrentUser = JSON.parse(this.CurrentUser)
-    this.getRepresentanteConciliados()
+    this.getStudentConciliados()
   }
 
 findWebUser(){
@@ -63,7 +65,9 @@ findWebUser(){
   }
 
   getStudentConciliados() {
-    this.adminService.getStudentConciliadosForAdmin().subscribe((data: any) => {
+    const formData = new FormData();
+    formData.append("idCurso", this.CurrentUser.idCurso)
+    this.docenteService.getStudentConciliados(formData).subscribe((data: any) => {
       this.webUsers = new MatTableDataSource(data);
       console.log(this.webUsers);
     }
@@ -86,14 +90,7 @@ findWebUser(){
       confirmButtonText: "Citar",
       showLoaderOnConfirm: true,
       preConfirm: async (motivo) => {
-      
-      
-
         this.prepararPlantillaYENviar(nameStudent,mailRepre,motivo);
-
-
-
-
       },
       allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {

@@ -227,7 +227,7 @@ export class AdminService {
    
   }
 
-  getRepresentanteConciliados(): Observable<Array<any>> {
+  getRepresentanteConciliados(formData:any): Observable<Array<any>> {
     const API_SERVER =  environment.URL_BASE +'/admin/get/getRepresentanteConciliados';
    const headers: any ={
      "Authorization": 'Bearer ' 
@@ -237,14 +237,14 @@ export class AdminService {
       headers: new HttpHeaders(headers),
   };
    //const service = this.dataObj.restAPI.filter((m: any) => m.name === 'Paises')[0];
-  let data=this.http.post<Array<any>>( API_SERVER,httpOptions).pipe(
+  let data=this.http.post<Array<any>>( API_SERVER,formData,httpOptions).pipe(
     catchError(this.handleError))
    console.log(data)
    return data
   }
 
 
-  getStudentConciliados(): Observable<Array<any>> {
+  getStudentConciliadosForAdmin(): Observable<Array<any>> {
     const API_SERVER =  environment.URL_BASE +'/admin/get/getStudentConciliados';
    const headers: any ={
      "Authorization": 'Bearer ' 
