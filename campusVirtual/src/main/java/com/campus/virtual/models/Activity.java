@@ -50,11 +50,11 @@ public class Activity {
 	@JoinColumn(name="docente")
 	private AdminUser docente;
 
-	@JsonFormat(pattern = "YYYY-MM-DD")
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private LocalDate fechaAsignada;
 	
 	
-	@JsonFormat(pattern = "YYYY-MM-DD")
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private LocalDate fechaMaxEntrega;
 	
 	@OneToOne
