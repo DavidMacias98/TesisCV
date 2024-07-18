@@ -44,7 +44,7 @@ public class Asistencias {
 	@OneToOne
 	private AdminUser docente;
 
-	@JsonFormat(pattern = "DD-MM-YYYY")
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private LocalDate fechaAsistencia;
 	
 	@OneToOne
