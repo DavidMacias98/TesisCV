@@ -24,13 +24,6 @@ export class NavDocenteComponent {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.navigateByUrl("admin/workspace/activitys")
   }
-
-  
-  goWebUser(){
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.router.navigateByUrl("admin/workspace/webuser")
-  }
-
   cerrarSesion(){
     localStorage.removeItem('sesion');
     Swal.fire(

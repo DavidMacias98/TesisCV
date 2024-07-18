@@ -95,6 +95,15 @@ findWebUser(){
       allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
       if (result.isConfirmed) {
+
+
+        Swal.fire({
+          title: `${result.value.login}'s avatar`,
+          imageUrl: result.value.avatar_url
+        });
+
+
+
       }
     });
 
@@ -109,6 +118,7 @@ findWebUser(){
       idPlantilla:"CITAR-REPRE",
       replacers:[{
         key:"[STUDENT]",
+
         value:nameStudent
       },
       {
@@ -123,8 +133,6 @@ findWebUser(){
         title: "Exito",
         text: "Representante citado.",
       }).then(() => {
-        
-
         
       })
 
