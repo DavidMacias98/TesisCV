@@ -59,10 +59,10 @@ public class OrdenPago {
 	@JoinColumn(name="curso")
 	private CatalogoCursos curso;
 	
-	@JsonFormat(pattern = "DD-MM-YYYY")
+	@JsonFormat(pattern = "dd-mm-yyyy")
 	private LocalDateTime fechaCreada;
 	
-	@JsonFormat(pattern = "DD-MM-YYYY")
+	@JsonFormat(pattern = "dd-mm-yyyy")
 	private LocalDate fechaMaxPago;
 	
 	@Column(name = "total")
