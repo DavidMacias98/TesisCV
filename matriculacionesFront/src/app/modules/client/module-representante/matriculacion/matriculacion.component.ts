@@ -51,7 +51,7 @@ export class MatriculacionComponent implements OnInit {
   @ViewChild('stepper') stepper!: MatStepper;
   @ViewChild('paginator') paginator!: MatPaginator;
 
-  displayedColumns: string[] = ['codigo', 'estudiante', 'curso', 'fechaCreada','fechaPago','estado','documents'];
+  displayedColumns: string[] = ['codigo', 'estudiante', 'curso', 'fechaCreada','fechaPago','estado'];
   dataSource :any
   students:any
   orders:any
