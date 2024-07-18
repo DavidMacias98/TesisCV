@@ -33,9 +33,9 @@ public class OrdenPagoDTO {
 	private String nameStudent;
 	private Long cedulaStudent;
 	private CatalogoCursos curso;
-	@JsonFormat(pattern = "DD-MM-YYYY")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDateTime fechaCreada;
-	@JsonFormat(pattern = "DD-MM-YYYY")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaMaxPago;
 	private BigDecimal total;
 	private CatalogoEstados status;
