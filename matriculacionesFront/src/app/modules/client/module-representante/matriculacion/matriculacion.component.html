@@ -56,9 +56,13 @@
             <ng-template matStepLabel>TERMINOS</ng-template>
             <form [formGroup]="treeFormGroup">
               <mat-checkbox formControlName="licitud" class="example-margin">ACEPTA LICITUD DE FONDOS</mat-checkbox>
+              
+              
               <div>
                 <button mat-button (click)="Matricular()">GUARDAR</button>
               </div>
+
+              
             </form>
             <button mat-button matStepperPrevious>REGRESAR</button>
 

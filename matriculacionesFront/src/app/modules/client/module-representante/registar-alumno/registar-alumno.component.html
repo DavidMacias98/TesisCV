@@ -129,7 +129,7 @@
 
 
 
-            <button *ngIf="infoVigente && terminosycondiciones " class="btnok" (click)="putStudent()"
+            <button *ngIf="infoVigente  " class="btnok" (click)="putStudent()"
                 mat-raised-button>CARGAR ESTUDIANTE</button>
 
 
@@ -137,6 +137,9 @@
                 <button mat-raised-button matStepperPrevious>REGRESAR</button>
                 <button mat-raised-button (click)="stepper.reset()">NUEVO</button>
             </mat-card-actions>
+
+
+
         </mat-step>
     </mat-stepper>
 
