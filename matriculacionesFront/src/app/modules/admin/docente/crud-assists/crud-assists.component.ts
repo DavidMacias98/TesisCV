@@ -82,7 +82,7 @@ export class CrudAssistsComponent {
 
 preAsistencia(){
   Swal.fire({
-    title: "Deseas tomar la asistencia del dia de hoy?",
+    title: "¿Deseas tomar la asistencia de hoy?",
     text: "ESTA ACCION NO SE PUEDE REVERTIR!",
     icon: "warning",
     showCancelButton: true,
