@@ -54,10 +54,12 @@
         <td mat-cell *matCellDef="let element">
             {{element.whatsapp}} 
         
-            <div style="gap: 0px 5px; display: flex; flex-direction: row;" *ngIf="element.rol=='student'">
+            <div class="glassboxOrange" style="gap: 0px 5px; display: flex; flex-direction: row;" *ngIf="element.rol=='student'">
                 {{element.idRepre.name }} {{element.idRepre.ape }} 
-
             </div>
+            <button  (click)="citarRepresentante(element.name,element.idRepre.usser)"  mat-raised-button class="glassbox">
+                CITAR 
+            </button>
         
         
         </td>
@@ -78,11 +80,6 @@
                 <div class="glassboxTitle">
                     ESTUDIANTE
                 </div>
-                <button  (click)="citarRepresentante(element.name,element.idRepre.usser)"  mat-raised-button class="glassbox">
-                    CITAR 
-                </button>
-                
-            
             </div>
             <div class="glassboxOrange" *ngIf="element.rol=='repre'">REPRESENTANTE</div>
         </td>
