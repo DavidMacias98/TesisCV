@@ -57,7 +57,7 @@ public class ActivityDetalles {
 	@JsonFormat()
 	private BigDecimal calificacion;
 	
-	
+	@JsonFormat(pattern = "dd-MM-yyyy HH:mm")
 	private LocalDateTime ultimaModificacion;
 	
 	@PrePersist
