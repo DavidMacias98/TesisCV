@@ -14,7 +14,7 @@ import { StudentService } from 'src/app/services/student.service';
 export class ActivitysStudentComponent {
 
   
-  displayedColumns: string[] = ['tema','materia', 'fecha', 'fechaentrega','status','subir'];
+  displayedColumns: string[] = ['tema','materia', 'fecha', 'fechaentrega','calificacion','status','subir'];
   Activitys:any
   CurrentUser :any
   constructor(
