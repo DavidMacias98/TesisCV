@@ -55,11 +55,11 @@
             {{element.whatsapp}} 
         
             <div class="glassboxOrange" style="gap: 0px 5px; display: flex; flex-direction: row;" *ngIf="element.rol=='student'">
-                {{element.idRepre.name }} {{element.idRepre.ape }} 
+                {{element.idRepre.name }} {{element.idRepre.ape  }} 
+                <button  (click)="citarRepresentante(element.name,element.idRepre.usser)"  mat-raised-button class="glassbox">
+                    CITAR 
+                </button>
             </div>
-            <button  (click)="citarRepresentante(element.name,element.idRepre.usser)"  mat-raised-button class="glassbox">
-                CITAR 
-            </button>
         
         
         </td>
@@ -80,6 +80,9 @@
                 <div class="glassboxTitle">
                     ESTUDIANTE
                 </div>
+               
+                
+            
             </div>
             <div class="glassboxOrange" *ngIf="element.rol=='repre'">REPRESENTANTE</div>
         </td>
