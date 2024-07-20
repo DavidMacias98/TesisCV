@@ -97,21 +97,21 @@ public class CuentaServiceImpl implements CuentaService {
 		System.out.println("documento nuevo"+newuser.getId());
 		WebUser aux = null;
 		String res;
-//		if(newuser.getId()==null) {
-//			res="Cuenta creada";
-//		aux= this.cuentaRepo.findByUsser(newuser.getUsser());
-//		if(aux!=null) {
-//			throw new Exception("Usuario ya existe");
-//		}
-//		}else {
-//			res="Cuenta Actualizada";
-//			if(newuser.getPass()!=null) {
-//				Optional <WebUser> op = this.cuentaRepo.findById(newuser.getId());
-//				if(op==null) {
-//					newuser.setPass(aux.getPass());
-//				}
-//			}
-//			}	
+		if(newuser.getId()==null) {
+			res="Cuenta creada";
+		aux= this.cuentaRepo.findByUsser(newuser.getUsser());
+		if(aux!=null) {
+			throw new Exception("Usuario ya existe");
+		}
+	}else {
+			res="Cuenta Actualizada";
+			if(newuser.getPass()!=null) {
+				Optional <WebUser> op = this.cuentaRepo.findById(newuser.getId());
+			if(op==null) {
+				newuser.setPass(aux.getPass());
+		}
+		}
+		}	
 		this.cuentaRepo.save(newuser);
 		return newuser;
 	}

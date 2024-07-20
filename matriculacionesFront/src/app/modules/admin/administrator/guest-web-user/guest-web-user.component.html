@@ -50,8 +50,17 @@
 
     <!-- Weight Column -->
     <ng-container matColumnDef="whatsapp">
-        <th mat-header-cell *matHeaderCellDef> #REPRESENTANTE</th>
-        <td mat-cell *matCellDef="let element"> {{element.whatsapp}} </td>
+        <th mat-header-cell *matHeaderCellDef> CELULAR REPRESENTANTE</th>
+        <td mat-cell *matCellDef="let element">
+            {{element.whatsapp}} 
+        
+            <div style="gap: 0px 5px; display: flex; flex-direction: row;" *ngIf="element.rol=='student'">
+                {{element.idRepre.name }} {{element.idRepre.ape }} 
+
+            </div>
+        
+        
+        </td>
     </ng-container>
 
     <!-- Symbol Column -->
@@ -60,15 +69,17 @@
         <td mat-cell *matCellDef="let element"> {{element.usser}} </td>
     </ng-container>
 
+
+
     <ng-container matColumnDef="rol">
-        <th mat-header-cell *matHeaderCellDef> rol </th>
+        <th mat-header-cell *matHeaderCellDef> ROL </th>
         <td mat-cell *matCellDef="let element">
             <div style="gap: 0px 5px; display: flex; flex-direction: row;" *ngIf="element.rol=='student'">
                 <div class="glassboxTitle">
                     ESTUDIANTE
                 </div>
                 <button  (click)="citarRepresentante(element.name,element.idRepre.usser)"  mat-raised-button class="glassbox">
-                    CITAR REPRESENTANTE
+                    CITAR 
                 </button>
                 
             
