@@ -11,21 +11,26 @@
     <form [formGroup]="firstFormGroup" class=" column">
 
         <div class="row">
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombres</mat-label>
+                <input #name type="text" matInput placeholder="" formControlName="NameCurso" required  >
+            </mat-form-field>   
+
+
             <input #name type="text" matInput placeholder="Nombre del curso" formControlName="NameCurso" required>
-            <input #price type="text" matInput placeholder="Precio de matriculacion" formControlName="PriceCurso"
-                required>
+            <input #price type="text" matInput placeholder="Precio de matriculacion" formControlName="precio" required>
         </div>
 
         <div class="row">
-            <input #edad type="number" matInput placeholder="Edad escolar" formControlName="NameCurso" required>
-            <input #orde type="number" matInput placeholder="Orden cronologico" formControlName="PriceCurso"
-                required>
+            <input #edad type="number" matInput placeholder="Edad escolar" formControlName="edad" required>
+            <input #orde type="number" matInput placeholder="Orden cronologico" formControlName="orden" required>
         </div>
 
 
         <mat-card-actions class="containerBtnRow">
             <button class="btn" (click)="putCurso(name.value,price.value,edad.value,orde.value)" >ENVIAR</button>
-            <button class="btn" (click)="closeModal()" style="background-color: white;" >CANCELAR</button>
+           <!-- <button class="btn" (click)="closeModal()" style="background-color: white;" >CANCELAR</button> -->
         </mat-card-actions>
        
     </form>

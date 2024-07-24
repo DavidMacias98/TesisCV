@@ -25,11 +25,12 @@ export class ModalCreateCursoComponent {
   @Output() eventoHijo = new EventEmitter();
   curso!:Curso
   loading: any;
+  
   firstFormGroup = this._formBuilder.group({
     NameCurso: ['', Validators.required],
-    PriceCurso: ['', Validators.required],
-    CorreoCtrl: ['', Validators.required],
-    PassCtrl: ['', Validators.required],
+    edad: ['', Validators.required],
+    precio: ['', Validators.required],
+    orden: ['', Validators.required],
   });
 
     constructor(

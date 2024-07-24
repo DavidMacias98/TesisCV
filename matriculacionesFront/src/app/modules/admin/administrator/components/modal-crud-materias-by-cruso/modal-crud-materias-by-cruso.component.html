@@ -8,9 +8,9 @@
 
     <div class="row">
 
-
+        <form [formGroup]="firstFormGroup" class=" column">
             <div class="newInput">
-                <input   #nameNewMateria placeholder="" type="text">
+                <input   #nameNewMateria placeholder=""  formControlName="nameNewMateria" type="text">
                 <label>NUEVA MATERIA</label>
                 <span dir="ltr">NUEVA MATERIA</span>
             </div>
@@ -19,7 +19,7 @@
                 style="background-color: #0a4863ff; color: white; margin-bottom: 5px;">
                 Crear nueva materia
             </button>
-  
+        </form>
     </div>
 
 
