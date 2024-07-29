@@ -63,6 +63,7 @@ public class ActivityDetalles {
 	@PrePersist
 	public void prepersist() {
 		this.numeroIntento= 0;
+		this.statusCalifica="Sin Calificar";	
 		//this.codigo= this.representante.getName().substring(0,2)+ this.estudiante.getName().substring(0,2)+this.curso.getName().substring(0,2);
 	}
 	@PreUpdate

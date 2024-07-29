@@ -29,9 +29,19 @@ export class DetalleActivityComponent implements OnInit {
     this.diasRestante=this.calcularDiferenciaEnDias()
   }
 
-  calcularDiferenciaEnDias(): number {
+  calcularDiferenciaEnDias(): any {
+
+
+    if(this.detalle.statusEntrega =="ENTREGADO"){
+      this.statusTime="ENTREGADO";
+      return null;
+    }
     let fechaInicial = new Date(this.detalle.activity.fechaMaxEntrega);
+    console.log(this.detalle.activity.fechaMaxEntrega)
+
+    console.log(fechaInicial)
     let fechaFinal = new Date();  // Fecha actual
+    console.log(fechaFinal)
 
    
     fechaInicial.setHours(0, 0, 0, 0);
@@ -41,9 +51,12 @@ export class DetalleActivityComponent implements OnInit {
     // Si deseas redondear el resultado a un número entero, puedes usar Math.round
     // const diferenciaRedondeada = Math.round(diferenciaEnDias);
     if(fechaFinal >fechaInicial){
-      diferenciaRedondeada=diferenciaRedondeada*-1
+      diferenciaRedondeada=(diferenciaRedondeada*-1)-2
       this.statusTime="DIAS DE RETRASO"
     }
+
+    
+
     return diferenciaRedondeada;
   }
 

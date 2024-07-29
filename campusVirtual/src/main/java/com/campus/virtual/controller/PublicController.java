@@ -189,5 +189,14 @@ public class PublicController {
 		return ResponseEntity.ok().body(response);
 	}
 	
-	
+	@PostMapping("public/cpass/webusers")
+	public ResponseEntity<?> switchPass(@RequestParam Long id, @RequestParam String actual, @RequestParam String nueva, @RequestParam String repetir) throws Exception {
+		Object response;
+		try {
+			response = this.cuentaService.cambiarContrasena(id, actual,nueva,repetir);
+		} catch (Exception e) {
+			return ResponseEntity.badRequest().body(new BadResponse(e.getMessage()));
+		}
+		return ResponseEntity.ok().body(response);
+	}
 }

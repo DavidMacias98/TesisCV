@@ -54,7 +54,7 @@ public class Activity {
 	private LocalDate fechaAsignada;
 	
 	
-	@JsonFormat(pattern = "dd-MM-yyyy")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaMaxEntrega;
 	
 	@OneToOne
